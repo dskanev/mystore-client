@@ -4,11 +4,11 @@ const Project = ({
     project
 }) => {
     return (
-        <li className="otherproject">
-            <h3>Name: {project.name}</h3>
-            <p>Description: {project.description}</p>
-            <p>Measurement: {project.measurement}</p>
-            <Link className="button" to="/">Details</Link>
+        <li className="otherProject">
+            <div className="floatLeft">
+                <h2>{project.name}</h2>
+            </div>            
+            <Link className="button floatRight" to="/">Details</Link>
         </li>
     )
 }
