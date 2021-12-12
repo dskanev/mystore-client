@@ -6,6 +6,7 @@ import Logout from './components/Logout';
 import Register from './components/Register';
 import ErrorBoundary from './components/Common/ErrorBoundary';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
           <main id="site-content">
             <Routes>
+              <Route path="/dashboard/*" element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<Register />} />

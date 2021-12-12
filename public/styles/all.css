@@ -7,7 +7,7 @@ body {
 
 .basic {
   background: linear-gradient(rgba(250, 248, 248, 0.2), rgba(25, 167, 173, 0.2)),
-    url(../img/We-need-to-talk-about-pets.jpg) no-repeat center;
+    url(../img/We-need-to-talk-about-projects.jpg) no-repeat center;
   background-size: cover;
   height: 85vh;
   position: relative;
@@ -84,20 +84,20 @@ img {
   padding-top: 100%;
 }
 
-.detailsOtherPet,
-.detailsMyPet,
-.deletePet,
-.otherPet,
-.myPet {
+.detailsOtherproject,
+.detailsMyproject,
+.deleteproject,
+.otherproject,
+.myproject {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.detailsMyPet > p:nth-child(2),
-.deletePet > p:nth-child(2),
-.otherPet > p:nth-child(2),
-.myPet > p:nth-child(2) {
+.detailsMyproject > p:nth-child(2),
+.deleteproject > p:nth-child(2),
+.otherproject > p:nth-child(2),
+.myproject > p:nth-child(2) {
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -115,7 +115,7 @@ img {
 }
 
 .basic h1,
-.my-pets h1,
+.my-projects h1,
 .dashboard h1 {
   text-align: center;
   margin: 0rem;
@@ -141,22 +141,22 @@ div.actions a {
   margin-right: 10px;
 }
 
-.deletePet > form,
-.detailsMyPet > form {
+.deleteproject > form,
+.detailsMyproject > form {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
 }
 
-.my-pets .my-pets-list,
-.dashboard .other-pets-list {
+.my-projects .my-projects-list,
+.dashboard .other-projects-list {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.detailsMyPet textarea,
-.my-pets textarea {
+.detailsMyproject textarea,
+.my-projects textarea {
   margin-bottom: 2rem;
 }
 
@@ -173,7 +173,7 @@ footer p {
   color: white;
 }
 
-.no-pets {
+.no-projects {
   font-weight: bold;
   font-size: large;
   text-align: center;
@@ -183,7 +183,7 @@ textarea#description {
   height: 100px;
   resize: none;
 }
-.otherPet {
+.otherproject {
   align-items: inherit;
   width: 24%;
   margin-bottom: 15px;
