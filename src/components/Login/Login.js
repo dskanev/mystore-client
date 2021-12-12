@@ -16,8 +16,11 @@ const Login = () => {
          let password = formData.get('password');
 
          authService.login(email, password)
-            .then((x) => {
-                login(x);
+            .then((result) => {
+                login({
+                    token: result.token,
+                    email: email
+                });
                 navigate('/');
             })
             .catch(x => {

@@ -27,7 +27,7 @@ const Header = () => {
                 <section className="navbar-dashboard">
                     <Link to="/dashboard">Dashboard</Link>
 
-                    {user.email
+                    {user.token
                         ? userNavigation
                         : guestNavigation
                     }
