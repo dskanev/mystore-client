@@ -8,7 +8,7 @@ const Project = ({
             <div className="floatLeft">
                 <h2>{project.name}</h2>
             </div>            
-            <Link className="button floatRight" to="/">Details</Link>
+            <Link className="button floatRight" to={`/details/${project.id}`}>Details</Link>
         </li>
     )
 }

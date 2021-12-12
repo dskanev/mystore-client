@@ -14,19 +14,26 @@ export const login = async (email, password) => {
     if (res.ok) {
         return jsonResult;
     } else {
-        throw jsonResult.message;
+        throw jsonResult.errors;
     }
 };
 
-export const register = (email, password) => {
-    return fetch(`${baseUrl}/Identity/Register`, {
+export const register = async (email, password) => {
+    let res = await fetch(`${baseUrl}/Identity/Register`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
-    })
-        .then(res => res.json()); 
+        body: JSON.stringify({ email, password })       
+    });
+
+    let jsonResult = await res.json();
+
+    if (res.ok) {
+        return jsonResult;
+    } else {
+        throw jsonResult.errors;
+    }
 };
 
 export const logout = () => {

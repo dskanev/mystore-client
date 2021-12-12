@@ -117,6 +117,7 @@ form textarea:focus {
   padding: 2rem;
   overflow: auto;
 }
+
 .project-description {
   width: 30rem;
   padding: 2rem;
@@ -132,9 +133,4 @@ form textarea:focus {
 .details .type {
   margin: 5px;
   font-size: 20px;
-}
-
-.details span.likes {
-  display: flex;
-  flex-direction: column;
 }

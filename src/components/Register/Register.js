@@ -12,9 +12,15 @@ const Register = () => {
         let {email, password} = Object.fromEntries(new FormData(e.currentTarget));
 
         authService.register(email, password)
-            .then(x => {
-                login(x);
-                navigate('/');
+            .then(result => {
+                login({
+                    token: result.token,
+                    email: email
+                });
+                navigate('/dashboard');
+            })
+            .catch(result => {
+                console.log(result);
             });
     }
 

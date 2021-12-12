@@ -17,13 +17,15 @@ const Create = () => {
         let unitOfMeasurementId = formData.get('unitOfMeasurementId');
         let cityId = formData.get('cityId');
         let measurement = formData.get('measurement');
+        let deadline = formData.get('deadline');
 
         projectService.create({
             name,
             description,
             unitOfMeasurementId,
             cityId,
-            measurement
+            measurement,
+            deadline
         })
             .then(result => {
                 navigate('/dashboard');
@@ -64,6 +66,13 @@ const Create = () => {
                         <label htmlFor="cityId">City</label>
                         <span className="input">
                             <CitiesDropdown />
+                        </span>
+                    </p>
+
+                    <p className="field">
+                        <label htmlFor="deadline">Deadline</label>
+                        <span className="input">
+                            <input type="date" id="deadline" name="deadline" />
                         </span>
                     </p>
                     

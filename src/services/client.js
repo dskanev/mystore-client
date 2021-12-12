@@ -1,4 +1,4 @@
-export const request = async (method, url, data) => {
+export const client = async (method, url, data) => {
     let result = null;
 
     result = fetch(url, {
@@ -9,7 +9,6 @@ export const request = async (method, url, data) => {
         },
         body: JSON.stringify(data)
     });
-    
     return result.then(responseHandler);
 };
 
@@ -17,7 +16,7 @@ async function responseHandler(res) {
     let jsonData = await res.json();
 
     if (res.ok) {
-        return Object.values(jsonData);
+        return jsonData;
     } else {
         throw jsonData;
     }
@@ -39,6 +38,6 @@ function getToken() {
     }
 }
 
-export const get = request.bind(null, 'GET');
-export const put = request.bind(null, 'PUT');
-export const post = request.bind(null, 'POST');
+export const get = client.bind(null, 'GET');
+export const put = client.bind(null, 'PUT');
+export const post = client.bind(null, 'POST');

@@ -23,8 +23,8 @@ const Login = () => {
                 });
                 navigate('/');
             })
-            .catch(x => {
-                console.log(x);
+            .catch(result => {
+                console.log(result);
             });
     }
 
