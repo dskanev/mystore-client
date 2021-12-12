@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import * as projectService from '../../../services/projectService';
 import { useAuthContext } from '../../../contexts/AuthContext';
+import CitiesDropdown from '../../Common/Dropdowns/Cities/CitiesDropdown';
+import UnitsDropdown from '../../Common/Dropdowns/Units/UnitsDropdown';
 
 const Create = () => {
     const { user } = useAuthContext();
@@ -48,22 +50,23 @@ const Create = () => {
                     <p className="field">
                         <label htmlFor="unitOfMeasurementId">Unit Of Measurement</label>
                         <span className="input">
-                            <input type="text" name="unitOfMeasurementId" id="unitOfMeasurementId" placeholder="unitOfMeasurementId" />
+                            <UnitsDropdown />
+                        </span>
+                    </p>
+                    <p className="field">
+                        <label htmlFor="measurement">Measurement</label>
+                        <span className="input">
+                            <input type="text" name="measurement" id="measurement"/>
                         </span>
                     </p>
 
                     <p className="field">
                         <label htmlFor="cityId">City</label>
                         <span className="input">
-                            <input type="text" name="cityId" id="cityId" placeholder="cityId" />
+                            <CitiesDropdown />
                         </span>
                     </p>
-                    <p className="field">
-                        <label htmlFor="measurement">Measurement</label>
-                        <span className="input">
-                            <input type="text" name="measurement" id="measurement" placeholder="measurement" />
-                        </span>
-                    </p>
+                    
                     <input className="button submit" type="submit" value="Add Project" />
                 </fieldset>
             </form>
