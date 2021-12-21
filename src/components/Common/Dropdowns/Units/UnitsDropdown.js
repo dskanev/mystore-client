@@ -6,10 +6,10 @@ const UnitsDropdown = ({
     existingValue
 }) => {
     const [units, setUnits] = useState([]);
-    const [selectedClient, setSelectedClient] = useState(existingValue?.id); //default value
+    const [selectedValue, setSelectedValue] = useState(existingValue?.id); //default value
 
     function handleSelectChange(event) {
-        setSelectedClient(event.target.value);
+        setSelectedValue(event.target.value);
     }
 
     useEffect(() => {
