@@ -21,7 +21,7 @@ const Login = () => {
                     token: result.token,
                     email: email
                 });
-                navigate('/');
+                navigate('/my-projects');
             })
             .catch(result => {
                 console.log(result);

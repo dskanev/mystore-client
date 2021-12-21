@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Register';
 import Create from './components/Projects/Create';
+import Edit from './components/Projects/Edit';
 import ProjectDetails from './components/Projects/Details';
 import UserProjects from './components/Projects/UserProjects.js/UserProjects';
 import ErrorBoundary from './components/Common/ErrorBoundary';
@@ -26,6 +27,7 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<Register />} />
               <Route path="/create" element={<Create />} />
+              <Route path="/edit/:projectId" element={<Edit />}/>
               <Route path="/details/:projectId" element={<ProjectDetails />} />
               <Route path="/my-projects" element={<PrivateRoute><UserProjects /></PrivateRoute>} />
             </Routes>
