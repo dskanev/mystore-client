@@ -18,7 +18,7 @@ const Edit = () => {
         projectData.id = projectId;
         projectService.update(projectData);
     }
-
+      
     return (
         <section id="edit-page" className="edit">
             <form id="edit-form" onSubmit={projectEditSubmitHandler} method="POST">
@@ -39,7 +39,7 @@ const Edit = () => {
                     <p className="field">
                         <label htmlFor="unitOfMeasurementId">Unit Of Measurement</label>
                         <span className="input">
-                            <UnitsDropdown />
+                            <UnitsDropdown existingValue = {project.unitOfMeasurement} />
                         </span>
                     </p>
                     <p className="field">
@@ -52,7 +52,7 @@ const Edit = () => {
                     <p className="field">
                         <label htmlFor="cityId">City</label>
                         <span className="input">
-                            <CitiesDropdown />
+                            <CitiesDropdown existingValue = {project.city}/>
                         </span>
                     </p>
 

@@ -2,8 +2,15 @@ import { useEffect, useState } from "react";
 
 import * as dropdownService from '../../../../services/dropdownService';
 
-const UnitsDropdown = () => {
+const UnitsDropdown = ({
+    existingValue
+}) => {
     const [units, setUnits] = useState([]);
+    const [selectedClient, setSelectedClient] = useState(existingValue?.id); //default value
+
+    function handleSelectChange(event) {
+        setSelectedClient(event.target.value);
+    }
 
     useEffect(() => {
         dropdownService.getUnits()
@@ -16,7 +23,7 @@ const UnitsDropdown = () => {
     }, []);
 
     return (
-        <select id="unitOfMeasurementId" name="unitOfMeasurementId" defaultValue={'DEFAULT'}>
+        <select id="unitOfMeasurementId" name="unitOfMeasurementId" value={existingValue?.id ?? 'DEFAULT'} onChange={handleSelectChange}>
             <option value='DEFAULT' disabled>Select Unit of Measurement</option>
             {
                 units.map(x => {

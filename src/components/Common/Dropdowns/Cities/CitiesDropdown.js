@@ -2,8 +2,15 @@ import { useEffect, useState } from "react";
 
 import * as dropdownService from '../../../../services/dropdownService';
 
-const CitiesDropdown = () => {
+const CitiesDropdown = ({
+    existingValue
+}) => {
     const [cities, setCities] = useState([]);
+    const [selectedClient, setSelectedClient] = useState(existingValue?.id); //default value
+
+    function handleSelectChange(event) {
+        setSelectedClient(event.target.value);
+    }
 
     useEffect(() => {
         dropdownService.getCities()
@@ -14,9 +21,9 @@ const CitiesDropdown = () => {
                 console.log(err);
             })
     }, []);
-
+    
     return (
-        <select id="cityId" name="cityId" defaultValue={'DEFAULT'}>
+        <select id="cityId" name="cityId" value={existingValue?.id ?? 'DEFAULT'} onChange={handleSelectChange}>
             <option value='DEFAULT' disabled>Select City</option>
             {
                 cities.map(x => {
