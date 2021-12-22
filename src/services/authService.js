@@ -1,4 +1,4 @@
-const baseUrl = 'https://localhost:5001';
+const baseUrl = 'http://localhost:5001';
 
 export const login = async (email, password) => {
     let res = await fetch(`${baseUrl}/Identity/Login`, {

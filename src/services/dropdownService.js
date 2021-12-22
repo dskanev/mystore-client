@@ -1,6 +1,6 @@
 import * as client from './client';
 
-const baseUrl = 'https://localhost:5001/Nomenclature';
+const baseUrl = 'http://localhost:5001/Nomenclature';
 const getCitiesUrl = `${baseUrl}/GetCities`;
 const getUnitsUrl = `${baseUrl}/GetUnits`;
 
