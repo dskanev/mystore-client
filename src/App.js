@@ -34,7 +34,7 @@ function App() {
           </main>
 
           <footer id="site-footer">
-            <p>@dsadas</p>
+            <p>@Майстор</p>
           </footer>
         </div>
       </AuthProvider>

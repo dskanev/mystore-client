@@ -27,7 +27,7 @@ const Create = () => {
             measurement,
             deadline
         })
-            .then(result => {
+            .then(() => {
                 navigate('/dashboard');
             })
     }

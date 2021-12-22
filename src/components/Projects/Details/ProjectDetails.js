@@ -7,6 +7,8 @@ import { useAuthContext } from "../../../contexts/AuthContext";
 import { Button } from "react-bootstrap";
 import ConfirmDialog from '../../Common/ConfirmDialog';
 import useProjectState from "../../../hooks/useProjectState";
+import CommentList from "../../Comments/CommentList";
+import CreateCommentForm from "../../Comments/Create/CreateCommentForm";
 
 const Details = () => {
     const navigate = useNavigate();
@@ -14,7 +16,7 @@ const Details = () => {
     const { projectId } = useParams();
     const [project, setProject] = useProjectState(projectId);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-
+    const [comments, setComments] = useState([]);
     const deleteHandler = (e) => {
         e.preventDefault();
 
@@ -32,7 +34,17 @@ const Details = () => {
             <Link className="button" to={`/edit/${project.id}`}>Edit</Link>
             <a className="button" href="#" onClick={deleteClickHandler}>Delete</a>
         </>
-    ); 
+    );
+    
+    useEffect(() => {
+        projectService.getCommentsForProject(projectId)
+            .then(result => {
+                setComments(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, []);
 
     return (        
         <>
@@ -51,11 +63,17 @@ const Details = () => {
                     <p>{project.description}</p>
                 </div>
                 <div>
-                        {project.id && (user.id == project._ownerId
+                        {project.id && (user.userId == project.createdBy)
                             ? ownerButtons
                             : null
-                        )}
+                        }
                 </div>
+            </section>
+            <section>
+                <CommentList comments={comments} />
+            </section>
+            <section>
+                <CreateCommentForm projectId={project.id} />
             </section>
         </>
     );

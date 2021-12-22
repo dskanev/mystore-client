@@ -7,6 +7,7 @@ const CitiesDropdown = ({
 }) => {
     const [cities, setCities] = useState([]);
     const [selectedValue, setSelectedValue] = useState(existingValue?.id);
+    let presetValue = existingValue?.id ?? 'DEFAULT';
 
     function handleSelectChange(event) {
         setSelectedValue(event.target.value);
@@ -23,7 +24,7 @@ const CitiesDropdown = ({
     }, []);
     
     return (
-        <select id="cityId" name="cityId" value={existingValue?.id ?? 'DEFAULT'} onChange={handleSelectChange}>
+        <select id="cityId" name="cityId" value={selectedValue ?? presetValue} onChange={handleSelectChange}>
             <option value='DEFAULT' disabled>Select City</option>
             {
                 cities.map(x => {

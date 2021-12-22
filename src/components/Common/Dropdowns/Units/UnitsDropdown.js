@@ -7,6 +7,7 @@ const UnitsDropdown = ({
 }) => {
     const [units, setUnits] = useState([]);
     const [selectedValue, setSelectedValue] = useState(existingValue?.id); //default value
+    let presetValue = existingValue?.id ?? 'DEFAULT';
 
     function handleSelectChange(event) {
         setSelectedValue(event.target.value);
@@ -23,7 +24,7 @@ const UnitsDropdown = ({
     }, []);
 
     return (
-        <select id="unitOfMeasurementId" name="unitOfMeasurementId" value={existingValue?.id ?? 'DEFAULT'} onChange={handleSelectChange}>
+        <select id="unitOfMeasurementId" name="unitOfMeasurementId" value={selectedValue ?? presetValue} onChange={handleSelectChange}>
             <option value='DEFAULT' disabled>Select Unit of Measurement</option>
             {
                 units.map(x => {

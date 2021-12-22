@@ -19,7 +19,8 @@ const Login = () => {
             .then((result) => {
                 login({
                     token: result.token,
-                    email: email
+                    email: email,
+                    userId: result.userId
                 });
                 navigate('/my-projects');
             })

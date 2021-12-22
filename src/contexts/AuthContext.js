@@ -5,6 +5,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 const initialAuthState = {
     email: '',
     token: '',
+    userId: ''
 };
 
 export const AuthContext = createContext();
@@ -14,11 +15,13 @@ export const AuthProvider = ({ children }) => {
 
     const login = ({
         token,
-        email
+        email,
+        userId
     }) => {
         setUser({
             token: token,
-            email: email
+            email: email,
+            userId: userId
         });
     }
 
