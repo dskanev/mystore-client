@@ -11,6 +11,7 @@ import CommentList from "../../Comments/CommentList";
 import CreateCommentForm from "../../Comments/Create/CreateCommentForm";
 
 const Details = () => {
+    
     const navigate = useNavigate();
     const { user } = useAuthContext();
     const { projectId } = useParams();
@@ -20,7 +21,13 @@ const Details = () => {
     const deleteHandler = (e) => {
         e.preventDefault();
 
-        // implement delete
+        projectService.deleteProject(projectId)
+            .then(() => {
+                navigate('/dashboard');
+            })
+            .finally(() => {
+                setShowDeleteDialog(false);
+            });
     };
 
     const deleteClickHandler = (e) => {

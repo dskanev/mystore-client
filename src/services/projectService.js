@@ -12,6 +12,8 @@ export const getUserProjects = async () => await client.get(`${baseUrl}/UserProj
 
 export const update = async (input) => await client.put(`${baseUrl}/UpdateProject`, input);
 
+export const deleteProject = async (projectId) => await client.del(`${baseUrl}/DeleteProject?projectId=${projectId}`);
+
 export const postComment = async (input) => await client.post(`${baseUrl}/PostComment`, input);
 
-export const getCommentsForProject = async (projectId) => await client.get(`${baseUrl}/GetCommentsForProject?projectId=${projectId}`); 
+export const getCommentsForProject = async (projectId) => await client.get(`${baseUrl}/GetCommentsForProject?projectId=${projectId}`);

@@ -41,3 +41,4 @@ function getToken() {
 export const get = client.bind(null, 'GET');
 export const put = client.bind(null, 'PUT');
 export const post = client.bind(null, 'POST');
+export const del = client.bind(null, 'DELETE');
