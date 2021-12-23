@@ -79,9 +79,11 @@ const Details = () => {
             <section>
                 <CommentList comments={comments} />
             </section>
-            <section>
-                <CreateCommentForm projectId={project.id} />
-            </section>
+            { (user.userId != '') ?
+                (<section>
+                    <CreateCommentForm projectId={project.id} />
+                </section>) : null
+            }            
         </>
     );
 }
