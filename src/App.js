@@ -12,6 +12,7 @@ import ErrorBoundary from './components/Common/ErrorBoundary';
 import PrivateRoute from './components/Common/PrivateRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './components/Dashboard';
+import UserDetails from './components/Identity/UserDetails';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/edit/:projectId" element={<Edit />}/>
               <Route path="/details/:projectId" element={<ProjectDetails />} />
               <Route path="/my-projects" element={<PrivateRoute><UserProjects /></PrivateRoute>} />
+              <Route path="/user-details" element={<PrivateRoute><UserDetails /></PrivateRoute>} />
             </Routes>
           </main>
 
