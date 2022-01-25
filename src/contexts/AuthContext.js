@@ -3,9 +3,9 @@ import { createContext, useContext } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 const initialAuthState = {
+    userId: '',
     email: '',
     token: '',
-    userId: ''
 };
 
 export const AuthContext = createContext();

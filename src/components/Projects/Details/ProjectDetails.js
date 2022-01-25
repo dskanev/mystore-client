@@ -9,6 +9,7 @@ import ConfirmDialog from '../../Common/ConfirmDialog';
 import useProjectState from "../../../hooks/useProjectState";
 import CommentList from "../../Comments/CommentList";
 import CreateCommentForm from "../../Comments/Create/CreateCommentForm";
+import ApplicantsList from "../ApplicantsList";
 
 const Details = () => {
     
@@ -27,6 +28,18 @@ const Details = () => {
             })
             .finally(() => {
                 setShowDeleteDialog(false);
+            });
+    };
+
+    const applyButtonHandler = (e) => {
+        e.preventDefault();
+
+        projectService.applyForProject(projectId)
+            .then(() => {
+                
+            })
+            .finally(() => {
+                
             });
     };
 
@@ -52,6 +65,9 @@ const Details = () => {
                 console.log(err);
             })
     }, []);
+
+    var applyButton = project.createdBy != user.userId ? (<a className="button" href="#" onClick={applyButtonHandler}>Apply For Project</a>)
+        : null;
 
     return (        
         <>
@@ -82,8 +98,14 @@ const Details = () => {
             { (user.userId != '') ?
                 (<section>
                     <CreateCommentForm projectId={project.id} />
-                </section>) : null
-            }            
+                    <ApplicantsList projectId={projectId} />
+                </section>) : null                
+            }
+            {
+                applyButton
+            }       
+                
+            
         </>
     );
 }

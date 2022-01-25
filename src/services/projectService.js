@@ -10,6 +10,10 @@ export const getProject = async (id) => await client.get(`${baseUrl}/GetById?id=
 
 export const getUserProjects = async () => await client.get(`${baseUrl}/UserProjects`);
 
+export const getProjectApplicants = async (projectId) => await client.get(`${baseUrl}/GetProjectApplicants?projectId=${projectId}`);
+
+export const applyForProject = async (projectId) => await client.post(`${baseUrl}/ApplyForProject?projectId=${projectId}`);
+
 export const update = async (input) => await client.put(`${baseUrl}/UpdateProject`, input);
 
 export const deleteProject = async (projectId) => await client.del(`${baseUrl}/DeleteProject?projectId=${projectId}`);
